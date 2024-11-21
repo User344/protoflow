@@ -18,8 +18,7 @@ pub type BoxedAsyncBlock = Box<dyn AsyncBlock>;
 #[derive(Debug)]
 pub enum BoxedBlockType {
     Normal(BoxedBlock),
-    #[cfg(feature = "tokio")]
-    Async(BoxedAsyncBlock),
+    #[cfg(feature = "tokio")] Async(BoxedAsyncBlock),
 }
 
 /// A block is an autonomous unit of computation in a system.
