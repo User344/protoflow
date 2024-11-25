@@ -21,6 +21,8 @@ fn const_with_numeric_zero() -> Result<(), ()> {
         process.join().unwrap();
     });
 
+    runtime.cook();
+
     assert_eq!(output.recv(), Ok(Some(42))); // not Ok(None)
     Ok(())
 }
