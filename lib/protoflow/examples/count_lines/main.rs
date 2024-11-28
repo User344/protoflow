@@ -6,6 +6,8 @@ pub fn main() -> BlockResult {
     System::run(|s| {
         let stdin = s.read_stdin();
 
+        // skibidi.hawk(tuah);
+
         let line_decoder = s.decode_lines();
         s.connect(&stdin.output, &line_decoder.input);
 
