@@ -82,11 +82,15 @@ jobs:
       - name: Run tests
         id: run-tests
         if: ${{ steps.check-tests.outcome == 'success' }}
+        env:
+          RUST_BACKTRACE: full
         run: |
           cargo +${{ steps.install-rust.outputs.name }} test --target ${{ matrix.target }} --workspace --tests --no-fail-fast
       - name: Run doctests
         id: run-doctests
         if: ${{ steps.check-tests.outcome == 'success' }}
+        env:
+          RUST_BACKTRACE: full
         run: |
           cargo +${{ steps.install-rust.outputs.name }} test --target ${{ matrix.target }} --workspace --doc --no-fail-fast
   review-pr:
